@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {HashRouter,Route,Switch} from 'react-router-dom';
 import SignIn from './components/authentication/signinForm';
 import SignUp from './components/authentication/signupForm';
@@ -9,6 +10,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  getChildContext() {
+    return {
+      store : this.props.store
+    }
+  }
+
+  componentWillMount(){
+    const {store} = this.props;
+    this.unsubscribe = store.subscribe(()=> {
+          console.log(JSON.stringify(store.getState()));
+          this.forceUpdate();
+        });
+  }
+
+  componentWillUnmount() {
+     this.unsubscribe();
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,6 +44,14 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  store : PropTypes.object.isRequired
+}
+
+App.childContextTypes = {
+  store : PropTypes.object.isRequired
 }
 
 export default App;
