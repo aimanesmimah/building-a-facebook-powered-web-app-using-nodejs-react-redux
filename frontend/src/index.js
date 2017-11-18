@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import storeFactory from './store/index';
+import './theme/globalStyle';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
