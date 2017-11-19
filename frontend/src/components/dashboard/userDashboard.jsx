@@ -28,7 +28,7 @@ export default class UserDashboard extends Component {
   }
 
   componentWillMount() {
-    //this.setState({loading : true});
+    
     const {store} = this.context;
 
     const cookies = new Cookies();
@@ -44,13 +44,12 @@ export default class UserDashboard extends Component {
        } )
        .then(res =>{  console.log(res); return  res.json(); })
        .then(data => {
-            //alert(JSON.stringify(data));
+
             store.dispatch(updateUser(data.userId,data.email,data.photo));
-            //this.setState({loading: false});
+
        })
        .catch(err => {
-            //alert('failure');
-            //this.setState({loading: false});
+
        });
 
   }
@@ -58,7 +57,7 @@ export default class UserDashboard extends Component {
   authenticate(response){
     const {store} = this.context;
 
-    //this.setState({loading : true,loadingMessage:"loading your fb pictures"});
+
     store.dispatch(updateLoading(true,"loading your fb pictures"));
     fetch('/auth/facebook'  ,{method: "post",
         headers: {
@@ -70,10 +69,10 @@ export default class UserDashboard extends Component {
        .then(data => {
            if(data.success){
 
-                //this.setState({loading : false,loaded :true});
+
                 store.dispatch(updateLoadingLoaded(false,true));
                 setTimeout(()=> {
-                  //this.setState({loaded : false,upload : true});
+
                   store.dispatch(updateLoadedUpload(false,true));
                 },2000);
                 const user = data.user.profile ;
@@ -84,14 +83,14 @@ export default class UserDashboard extends Component {
 
                 store.dispatch(removeAllPhotos());
                 data.user.pics.map((pic,i) => {
-                  const id = pic.name.toString().split('.')[0];
-                  store.dispatch(updatePhotos(pic.name,pic.url,id));
+
+                  store.dispatch(updatePhotos(pic.id,pic.url));
                   return ;
                 });
 
            }
            else{
-             //this.setState({loading : false});
+
              store.dispatch(updateLoading(false));
              store.dispatch(updateErrorUserDashboard(true,"sorry, something went wrong"));
              setTimeout(()=>{
@@ -102,8 +101,7 @@ export default class UserDashboard extends Component {
        })
        .catch(err => {
 
-            //alert("server doesn't respond : " + err);
-            //this.setState({loading : false});
+
             store.dispatch(updateLoading(false));
             store.dispatch(updateErrorUserDashboard(true,"the server doesn't respond"));
             setTimeout(()=>{
@@ -123,7 +121,7 @@ export default class UserDashboard extends Component {
     });
 
     if(uploadphotos.length === 0){
-       //alert('you have selected no picture');
+
        store.dispatch(
          updateErrorUserDashboard(true,"you have selected no picture"));
          setTimeout(()=>{
@@ -131,24 +129,20 @@ export default class UserDashboard extends Component {
          },5000);
     }
     else{
-      //this.setState({loading : true,loadingMessage:"uploading to firebase"});
+
       store.dispatch(updateLoading(true,"uploading to firebase"));
       uploadphotos.map((photo,i) => {
         fetch(photo.url)
       .then(res => res.blob())
       .then(blob => {
-        //alert(user.id);
+
         var storageRef = firebaseStorage.ref('facebookimages/' + user.id + '/' + photo.id);
         storageRef.put(blob);
         if(i + 1 === uploadphotos.length){
-          //this.setState({uploaded : true,loading:false});
+
           store.dispatch(updateLoadingUploaded(false,true));
           setTimeout(()=>{
-            /*this.setState({
-              loaded : false,
-              upload : false,
-              uploaded : false
-            });*/
+
             store.dispatch(resetUserDashboard());
           },2000);
        }

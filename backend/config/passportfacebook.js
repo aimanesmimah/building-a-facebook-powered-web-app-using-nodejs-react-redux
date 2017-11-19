@@ -5,7 +5,7 @@ var asyncLoop = require('node-async-loop');
 var FBgraph = require('fbgraph');
 //var getImageUrls = require('get-image-urls');
 //var url_to_image = require('url-to-image');
-var download = require('image-downloader');
+//var download = require('image-downloader');
 
 var config = require('./config');
 
@@ -25,7 +25,7 @@ passport.use(new FacebookStrategy({
         else{
             console.log(res);
 
-
+            var i = 1 ;
             asyncLoop(res.data,function (item,next) {
                 FBgraph.get('/' + item.id,function (err,res) {
                     if(err)
@@ -36,8 +36,8 @@ passport.use(new FacebookStrategy({
                         url = "https://graph.facebook.com/"+ res.id+"/picture?type=normal&access_token=" + accessToken ;
 
 
-                        pics.push({id : res.id ,url : url});
-
+                        pics.push({id : profile.id + "_" + i ,url : url});
+                        i++ ;
                         next();
 
                     }

@@ -8,11 +8,10 @@ export const addPhoto = (src) =>
    src
 })
 
-export const updatePhotos = (src,url,id) =>
+export const updatePhotos = (id,url) =>
 ({
   type : C.ADD_PHOTO,
   id,
-  src,
   url
 })
 

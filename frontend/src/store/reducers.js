@@ -60,7 +60,6 @@ export const photo = (state = {} ,action ) => {
     case C.ADD_PHOTO:
       return {
         id : action.id,
-        src : action.src,
         url : action.url,
         checked : false
       }
