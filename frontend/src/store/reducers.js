@@ -112,8 +112,71 @@ export const signin = (state = {} , action) => {
 }
 
 export const userDashboard = (state = {},action) => {
-   switch (action.type) {
-     default:
-        return state ;     
-   }
+  switch (action.type) {
+   case C.UPDATE_ERROR_USER_DASHBOARD :
+     return {
+       ...state,
+       error : action.error,
+       errorMessage : action.errorMessage
+     }
+   case C.UPDATE_LOADING:
+     return {
+       ...state,
+       loading : action.loading,
+       loadingMessage : action.message
+     }
+   case C.UPDATE_LOADED:
+     return {
+       ...state,
+       loaded : action.loaded
+     }
+   case C.UPDATE_UPLOAD :
+     return {
+       ...state,
+       upload : action.upload
+     }
+   case C.UPDATE_UPLOADED :
+     return {
+         ...state,
+         uploaded : action.uploaded
+     }
+   case C.UPDATE_LOADING_LOADED :
+     return {
+           ...state,
+           loading : action.loading,
+           loaded: action.loaded
+       }
+   case C.UPDATE_LOADED_UPLOAD :
+     return {
+         ...state,
+         loaded : action.loaded,
+         upload : action.upload
+     }
+   case C.UPDATE_LOADING_UPLOADED :
+     return {
+       ...state,
+       loading : action.loading,
+       uploaded : action.uploaded
+     }
+   case C.RESET_USER_DASHBOARD :
+     return {
+       loading : false ,
+       loaded : false ,
+       upload : false ,
+       uploaded : false
+     }
+   case C.UPDATE_LIGHTBOX :
+     return {
+       ...state,
+       isLightboxOpen : action.isOpen
+     }
+   case C.UPDATE_PHOTO_INDEX :
+     return {
+        ...state,
+        photoIndex : action.photoIndex
+     }
+   default :
+     return state;
+
+ }
 }

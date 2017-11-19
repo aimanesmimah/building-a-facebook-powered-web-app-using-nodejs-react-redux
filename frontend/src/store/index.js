@@ -27,7 +27,15 @@ const initialState = {
 
   },
   userDashboard : {
-    
+    error : false ,
+    errorMessage : "",
+    loading : false,
+    loadingMessage : "",
+    loaded : false,
+    upload : false,
+    uploaded : false,
+    isLightboxOpen : false ,
+    photoIndex : 0
   }
 }
 

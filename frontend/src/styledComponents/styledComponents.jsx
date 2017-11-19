@@ -347,3 +347,14 @@ export const StyledFacebookButton = styled.button`
 
 
 `
+
+export const StyledPicsGrid = styled.div`
+  width : 90% ;
+  margin : 50px auto ;
+  /*border : 1px solid black ;*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+`

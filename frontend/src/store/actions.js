@@ -74,3 +74,74 @@ export const updateSignupFieldError = (fieldErrorMessage) =>
   type : C.UPDATE_SIGNUP_FIELD_ERROR,
   fieldErrorMessage
 })
+
+
+export const updateLoading = (loading,message="") =>
+({
+  type : C.UPDATE_LOADING,
+  loading,
+  message
+})
+
+export const updateLoaded = (loaded) =>
+({
+  type : C.UPDATE_LOADED,
+  loaded
+})
+
+export const updateUpload = (upload) =>
+({
+  type : C.UPDATE_UPLOAD,
+  upload
+})
+
+export const updateUploaded = (uploaded) =>
+({
+  type : C.UPDATE_UPLOADED,
+  uploaded
+})
+
+export const updateLoadingLoaded = (loading,loaded) =>
+({
+  type : C.UPDATE_LOADING_LOADED,
+  loading,
+  loaded
+})
+
+export const updateLoadedUpload = (loaded,upload) =>
+({
+  type : C.UPDATE_LOADED_UPLOAD,
+  loaded,
+  upload
+})
+
+export const updateLoadingUploaded = (loading,uploaded) =>
+({
+  type : C.UPDATE_LOADING_UPLOADED,
+  loading,
+  uploaded
+})
+
+export const resetUserDashboard = () =>
+({
+  type : C.RESET_USER_DASHBOARD
+})
+
+export const updateErrorUserDashboard = (error,errorMessage="") =>
+({
+  type : C.UPDATE_ERROR_USER_DASHBOARD ,
+  error,
+  errorMessage
+})
+
+export const updateLighbox = (isOpen) =>
+({
+  type : C.UPDATE_LIGHTBOX ,
+  isOpen
+})
+
+export const updatePhotoIndex = (photoIndex) =>
+({
+  type : C.UPDATE_PHOTO_INDEX,
+  photoIndex
+})
