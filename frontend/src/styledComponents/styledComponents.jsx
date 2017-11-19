@@ -358,3 +358,85 @@ export const StyledPicsGrid = styled.div`
   justify-content: center;
 
 `
+
+export const StyledToggleSection = styled.div`
+  width : 180px;
+  margin : 10px auto ;
+  padding : 3px 0 ;
+  background-color: #72bbdf;
+  border-radius: 20px;
+
+`
+export const StyledP = styled.p`
+  margin : 0 ;
+  padding : 0;
+`
+
+export const StyledInfos = styled.div`
+  margin : 10px auto ;
+  padding : 20px 30px ;
+  width : 520px;
+  background-color: #3052e0;
+  border : 2px dashed blue;
+  display: none ;
+`
+
+export const InfosItems = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const InfoItem = styled.div`
+  margin : 10px 0;
+  font-size: 16px;
+  color : white ;
+`
+
+export const StyledInfosInput = styled.input`
+  border-radius: 10px ;
+  width : 200px ;
+  height : 30px ;
+  padding-left : 15px ;
+  &:focus {
+    outline: none;
+    border : 1px solid #b0cfe8
+  }
+
+`
+
+export const StyledInfosButton = styled.button`
+  transition: color .5s ease-in-out;
+  transition: background-color 1s ease-in-out;
+  transition : width 0.5s ease-in-out;
+  width : 100px ;
+  height : 30px ;
+  background-color: transparent;
+  color : white;
+  font-weight: 600;
+  border-style : solid;
+  border-width: 2px;
+  border-color :white;
+  border-radius: 5px;
+  cursor : pointer;
+  &:hover{
+     transition: color .5s ease-in-out;
+     transition : width .5s ease-in-out;
+     width : 110px;
+     font-weight: 900;
+     color : #3052e0;
+     border : none ;
+     background-color : white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  ${({loading}) => loading && css`
+      border : none ;
+      background-color : #14fc5e;
+  `}
+
+
+`
