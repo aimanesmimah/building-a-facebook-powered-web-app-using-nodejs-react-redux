@@ -1,4 +1,6 @@
 import styled,{css} from 'styled-components';
+import {NavLink} from 'react-router-dom';
+
 
 export const StyledAuthTemplate = styled.div`
     position : relative;
@@ -192,4 +194,83 @@ export const LoaderItem = styled.li`
 
 export const StyledLoaderItem = styled.div`
 
+`
+
+export const StyledAppMenu = styled.ul`
+  list-style: none ;
+  margin : 0 0 0 50px;
+  padding : 0;
+`
+
+export const AppMenuItem = styled.li`
+  display: inline;
+  margin : 0 0 0 20px;
+  padding : 0 0 17px 0 ;
+  font-family: 'Patua One', cursive;
+  ${({active}) => active && css`
+    border-bottom : 4px solid #2014ac;
+  `  }
+
+
+
+
+`
+
+export const AppMenuLink = styled(NavLink)`
+  color : #2014ac;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600
+
+`
+
+export const StyledAppTemplate = styled.div`
+  position : absolute;
+  width : 100%;
+  top : 0 ;
+  left : 0 ;
+  background: #5db3e9;
+  height : 100vh;
+  overflow-y: auto;
+`
+
+export const AppTemplateBody = styled.div`
+  margin : 110px 0 0 0 ;
+`
+
+export const StyledAppBar = styled.div`
+  position : absolute;
+  top : 0 ;
+  left : 0 ;
+  /*padding : 10px 0 0 20px ;*/
+  text-align: left;
+  width : 100%;
+  height : 63px;
+  background-color: white;
+  z-index : 10;
+  box-shadow: 2px 2px 5px #111;
+`
+
+export const BarLeftBox = styled.div`
+  float : left;
+  margin : 20px 0 0 20px;
+  display: flex;
+  flex-direction: row;
+
+`
+
+export const BarRightBox = styled.div`
+  float: right;
+  margin : 5px 30px 0 0;
+  display: flex ;
+  flex-direction: row;
+  /*border : 1px solid black;*/
+  justify-content: space-between;
+
+`
+
+export const StyledBarIcon = styled.img`
+  width : 150px;
+  height : 30px ;
 `
