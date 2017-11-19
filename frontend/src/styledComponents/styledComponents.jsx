@@ -274,3 +274,76 @@ export const StyledBarIcon = styled.img`
   width : 150px;
   height : 30px ;
 `
+
+export const StyledPhotoItem = styled.div`
+  position: relative;
+  margin : 20px
+
+`
+
+export const Styledfbimage = styled.img`
+  width : 300px ;
+  height : 300px ;
+  border : 3px solid white ;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover{
+    border : 3px solid #b5bfbd ;
+  }
+`
+
+export const StyledPhotoCheckbox = styled.input`
+  position: absolute;
+  top : 20px ;
+  left : 20px ;
+  cursor: pointer;
+  width : 23px;
+  height : 23px;
+
+  &:checked{
+
+  }
+`
+
+export const StyledLoader = styled.div`
+  margin-top: 10px
+`
+
+export const StyledFacebookButton = styled.button`
+    transition: color .5s ease-in-out;
+    transition: background-color 1s ease-in-out;
+    padding : 0 10px;
+    width : 250px;
+    height : 60px ;
+    background-color: transparent;
+    color : #122ec2 ;
+    font-weight: 600;
+    border-style : solid;
+    border-width: 1px;
+    border-color :#122ec2;
+    border-radius: 5px;
+    cursor : pointer;
+    &:hover {
+      background-color: #122ec2;
+      color : white
+
+    }
+
+    ${({loading}) => loading && css`
+        color : white ;
+        background-color : #122ec2;
+    `}
+
+    ${({loaded}) => loaded && css`
+        color : white ;
+        background-color : #122ec2;
+    `}
+
+    ${({uploaded}) => uploaded && css`
+        color : white ;
+        background-color : #122ec2;
+    `}
+
+
+`
