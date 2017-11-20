@@ -21,14 +21,14 @@ To redirect the http asynchronous requests from the react app to the server we a
  
 database 
 -----
-The app implements the api of monogodb database and mongoose to persist user model data
+The app implements the api of mongodb database and mongoose to persist user model data
 
 make sure that you have mongodb installed as well as configured in accordance with the configuration of the user model in the app 
 before running the server
 
 facebook test 
 -----
-the facebook app is still working in the development mode
+the facebook app is still in the development mode
 
 so if you want to connect your own facebook account for testing you should provide me with your user account so that
 I add you as a tester
